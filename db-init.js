@@ -63,7 +63,7 @@ async function initDB() {
   await sql`
     CREATE TABLE IF NOT EXISTS sessions (
       id TEXT PRIMARY KEY,
-      expires_at BIGINT NOT NULL,
+      expires_at TIMESTAMP NOT NULL,
       user_id INTEGER NOT NULL,
       CONSTRAINT fk_user
         FOREIGN KEY (user_id)

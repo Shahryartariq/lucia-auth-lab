@@ -2,6 +2,7 @@
 import { redirect } from "next/navigation";
 import { hashUserPassword } from "@/lib/hash";
 import { createUser } from "@/lib/user";
+import { createAuthSession } from "@/lib/auth";
 
 export async function signup(prevState, formData) {
   const email = formData.get("email");
@@ -24,12 +25,14 @@ export async function signup(prevState, formData) {
   }
 
   const hashedPassword = hashUserPassword(password);
-
+  
   const result = await createUser(email, hashedPassword);
-
+ 
   if (result.errors) {
     return { errors: result.errors };
+  } else {
+     await createAuthSession(result.userId)
+     redirect("/training");
   }
 
-  redirect("/training");
 }

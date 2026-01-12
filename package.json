@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.2",
+    "@lucia-auth/adapter-postgresql": "^3.1.2",
+    "@neondatabase/serverless": "^0.9.5",
     "dotenv-flow": "^4.1.0",
+    "lucia": "^3.2.2",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18"
