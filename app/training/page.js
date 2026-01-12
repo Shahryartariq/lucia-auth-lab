@@ -1,7 +1,7 @@
 import { getTrainings } from '@/lib/training';
 
 export default async function TrainingPage() {
-  const trainingSessions = getTrainings();
+  const trainingSessions = await getTrainings();
 
   return (
     <main>
