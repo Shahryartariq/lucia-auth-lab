@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Next Auth',
+  title: 'lucia auth lab',
   description: 'Next.js Authentication',
 };
 
