@@ -14,8 +14,8 @@ export async function signup(prevState, formData) {
     errors.email = "Please Enter A Valid Email Address";
   }
 
-  if (password.trim().length < 8) {
-    errors.password = "Password must be at least 8 characters long";
+  if (password.trim().length < 6) {
+    errors.password = "Password must be at least 6 characters long";
   }
 
   if (Object.keys(errors).length > 0) {
@@ -30,9 +30,10 @@ export async function signup(prevState, formData) {
  
   if (result.errors) {
     return { errors: result.errors };
-  } else {
-     await createAuthSession(result.userId)
-     redirect("/training");
   }
+  
+  await createAuthSession(result.userId)
+  redirect("/training");
+  
 
 }
