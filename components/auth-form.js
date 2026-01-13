@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useFormState } from "react-dom";
 import { auth } from "@/action/auth-action";
+import { SubmitButton } from "./submit-auth";
+
 
 export default function AuthForm({ mode }) {
   const action = auth.bind(null, mode);
@@ -28,7 +30,7 @@ export default function AuthForm({ mode }) {
         </ul>
       )}
       <p>
-        <button type="submit">{mode === "login" ? "Login" : "Create Account"}</button>
+         <SubmitButton mode={mode} />
       </p>
       <p>
         {mode === "login" && <Link href="/?mode=signup">Create an account.</Link>}
